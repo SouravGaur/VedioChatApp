@@ -1,7 +1,13 @@
 import express from "express";
 import { Server } from "socket.io";
+import cors from "cors";
 
-const io = new Server(8000, { cors: true });
+const io = new Server(8000, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
 const emailToSocketIdMap = new Map();
 const socketIdToEmailMap = new Map();
 io.on("connection", (socket) => {
