@@ -10,7 +10,7 @@ export const useSocket = () => {
 };
 
 export default function SockerProvider(props) {
-  const socket = useMemo(() => io("localhost:8000"), []);
+  const socket = useMemo(() => io(import.meta.env.VITE_BACKEND_URL), []);
   return (
     <SocketContext.Provider value={socket}>
       {props.children}
