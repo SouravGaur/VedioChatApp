@@ -1,8 +1,18 @@
 import express from "express";
 import { Server } from "socket.io";
+import http from "http";
 import cors from "cors";
+import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 
-const io = new Server(8000, {
+const app = express();
+app.use(cors());
+
+const PORT = process.env.PORT || 8000;
+const server = http.createServer(app);
+
+const io = new Server(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
