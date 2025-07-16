@@ -48,3 +48,6 @@ io.on("connection", (socket) => {
     console.log("peer:nego:final", ans);
   });
 });
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
